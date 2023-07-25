@@ -72,7 +72,6 @@ modules:
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml id ${FLATPAK_ID}
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml name "Freeciv21"
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml summary "Freeciv21 - Freeciv for the 21st Century"
-      - cat ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml
     sources:
       - type: git
         commit: 3061725b0b9449a0757c19dd7d63fa1910548bb5
