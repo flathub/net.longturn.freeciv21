@@ -70,10 +70,12 @@ modules:
       - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.ruledit.desktop
       # Update and patch our stable appsream file to support Flathub's requirements.
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml id ${FLATPAK_ID}
-      - patch ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml release.patch
+      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml name "Freeciv21"
+      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml summary "Freeciv21 - Freeciv for the 21st Century"
+      - cat ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml
     sources:
       - type: git
-        tag: v3.0-patch.1
+        commit: 3061725b0b9449a0757c19dd7d63fa1910548bb5
         url: https://github.com/longturn/freeciv21
       - type: file
         url: https://raw.githubusercontent.com/longturn/freeciv21/v3.0/data/icons/128x128/freeciv21-client.png
@@ -84,9 +86,6 @@ modules:
       - type: file
         url: https://raw.githubusercontent.com/longturn/freeciv21/v3.0/data/icons/128x128/freeciv21-modpack.png
         sha256: 72b785e553c79a5422df121f7531cc9fe974a484e374bcf2432af5b4766d7d88
-      - type: file
-        path: release.patch
-        sha256: 6b1806797ac7a82621236a730f4682c91e96aa59b164d26a96f441c4e422813e
 
 ##########
 # END net.longturn.freeciv21.yaml
