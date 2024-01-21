@@ -74,7 +74,7 @@ modules:
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml summary "Freeciv21 - Freeciv for the 21st Century"
     sources:
       - type: git
-        commit: 1387553c573d67732d9a35c19c294127ea80f952
+        commit: 4c161dc8a1cc4b7cbcd505e8be4653bb58a12b66
         url: https://github.com/longturn/freeciv21
       - type: file
         url: https://raw.githubusercontent.com/longturn/freeciv21/v3.0/data/icons/128x128/freeciv21-client.png
