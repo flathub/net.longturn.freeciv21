@@ -7,6 +7,8 @@
 # Build Steps:
 #   - (once) sudo apt install flatpak-builder
 #   - (once) sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#   - (once) git submodules init
+#   - (once) git pull --recursive-submodules
 #   - flatpak-builder --install-deps-from=flathub --force-clean build/flatpak net.longturn.freeciv21.yaml
 #   - flatpak-builder --user --install --force-clean build/flatpak net.longturn.freeciv21.yaml
 #   - flatpak run net.longturn.freeciv21
@@ -15,8 +17,9 @@
 ##########
 
 app-id: net.longturn.freeciv21
+# See https://invent.kde.org/packaging/flatpak-kde-runtime for versions of the runtime
 runtime: org.kde.Platform
-runtime-version: '5.15-22.08'
+runtime-version: '5.15-23.08'
 sdk: org.kde.Sdk
 finish-args:
   - --socket=wayland
@@ -71,7 +74,7 @@ modules:
       # Update and patch our stable appsream file to support Flathub's requirements.
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml id ${FLATPAK_ID}
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml name "Freeciv21"
-      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml summary "Freeciv21 - Freeciv for the 21st Century"
+      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml summary "Freeciv21 - Develop Your Civilization from Humble Roots to a Global Empire"
     sources:
       - type: git
         commit: 1c314496c1cabf6e582e10d8660bb1b31ae461d3
