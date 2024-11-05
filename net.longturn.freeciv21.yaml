@@ -74,10 +74,10 @@ modules:
       # Update and patch our stable appsream file to support Flathub's requirements.
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml id ${FLATPAK_ID}
       - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml name "Freeciv21"
-      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml summary "Freeciv21 - Develop Your Civilization from Humble Roots to a Global Empire"
+      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml summary "Develop Your Civilization from Humble Roots to a Global Empire"
     sources:
       - type: git
-        commit: 1c314496c1cabf6e582e10d8660bb1b31ae461d3
+        commit: 6e5abce10b2f0b86883f2e2479597a8296ecba2f
         url: https://github.com/longturn/freeciv21
       - type: file
         url: https://raw.githubusercontent.com/longturn/freeciv21/v3.0/data/icons/128x128/freeciv21-client.png
