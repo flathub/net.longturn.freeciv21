@@ -9,6 +9,7 @@
 #   - (once) sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 #   - (once) git submodules init
 #   - (once) git pull --recursive-submodules
+#   - git submodule update --recursive --remote
 #   - flatpak-builder --install-deps-from=flathub --force-clean build/flatpak net.longturn.freeciv21.yaml
 #   - flatpak-builder --user --install --force-clean build/flatpak net.longturn.freeciv21.yaml
 #   - flatpak run net.longturn.freeciv21
