@@ -7,11 +7,11 @@
 # Build Steps:
 #   - (once) sudo apt install flatpak-builder
 #   - (once) sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-#   - (once) git submodules init
-#   - (once) git pull --recursive-submodules
+#   - (once) git submodule init
+#   - (once) git pull --recurse-submodules
 #   - git submodule update --recursive --remote
-#   - flatpak-builder --install-deps-from=flathub --force-clean build/flatpak net.longturn.freeciv21.yaml
-#   - flatpak-builder --user --install --force-clean build/flatpak net.longturn.freeciv21.yaml
+#   - flatpak-builder --install-deps-from=flathub --force-clean build net.longturn.freeciv21.yaml
+#   - flatpak-builder --user --install --force-clean build net.longturn.freeciv21.yaml
 #   - flatpak run net.longturn.freeciv21
 #   - flatpak remove net.longturn.freeciv21
 #
@@ -20,7 +20,7 @@
 app-id: net.longturn.freeciv21
 # See https://invent.kde.org/packaging/flatpak-kde-runtime for versions of the runtime
 runtime: org.kde.Platform
-runtime-version: '5.15-23.08'
+runtime-version: '5.15-24.08'
 sdk: org.kde.Sdk
 finish-args:
   - --socket=wayland
@@ -31,9 +31,6 @@ finish-args:
   - --filesystem=home
   - --persist=.local/share/freeciv21
   - --persist=.config/freeciv21
-
-rename-desktop-file: net.longturn.freeciv21.client.desktop
-rename-appdata-file: net.longturn.freeciv21.client.metainfo.xml
 
 command: freeciv21-client
 
@@ -63,32 +60,32 @@ modules:
       - /include
       - /lib
     post-install:
-      # Install our 128x128 icons. TODO: Need a unique icon for the ruleset editor (ruledit)
+      # Install our 128x128 icons.
       - install -D freeciv21-client.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
       - install freeciv21-server.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.server.png
       - install freeciv21-modpack.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.modpack.png
+      - install freeciv21-ruledit.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.ruledit.png
       # Modify the desktop files with the icons.
-      - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.client.desktop
+      - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
       - desktop-file-edit --set-icon=${FLATPAK_ID}.server ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.server.desktop
-      - desktop-file-edit --set-icon=${FLATPAK_ID}.modpack ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.modpack-qt.desktop
+      - desktop-file-edit --set-icon=${FLATPAK_ID}.modpack ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.modpack.desktop
       - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.ruledit.desktop
-      # Update and patch our stable appsream file to support Flathub's requirements.
-      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml id ${FLATPAK_ID}
-      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml name "Freeciv21"
-      - appstream-util modify ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.client.metainfo.xml summary "Develop Your Civilization from Humble Roots to a Global Empire"
     sources:
       - type: git
-        commit: 6e5abce10b2f0b86883f2e2479597a8296ecba2f
+        commit: 6ee5cf214c961a8e41313027292f5e41bffd790d
         url: https://github.com/longturn/freeciv21
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.0/data/icons/128x128/freeciv21-client.png
+        url:  https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-client.png
         sha256: 33afb053fbbf78697519a9228da4230562394286c9dc29d335d4d6372276b400
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.0/data/icons/128x128/freeciv21-server.png
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-server.png
         sha256: 05352cc0c00746ba79542103f0d71dc17368da24f2ebed3979ddadc199b930ba
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.0/data/icons/128x128/freeciv21-modpack.png
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-modpack.png
         sha256: 72b785e553c79a5422df121f7531cc9fe974a484e374bcf2432af5b4766d7d88
+      - type: file
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-ruledit.png
+        sha256: b69f76d8aa6897a47b40da3762161d1f153b04b099c0718be4b75e03177abbfa
 
 ##########
 # END net.longturn.freeciv21.yaml
