@@ -82,7 +82,7 @@ modules:
         sha256: 05352cc0c00746ba79542103f0d71dc17368da24f2ebed3979ddadc199b930ba
       - type: file
         url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-modpack.png
-        sha256: 72b785e553c79a5422df121f7531cc9fe974a484e374bcf2432af5b4766d7d88
+        sha256: 82c32292738cb63a6e55bf880758ff5f9987e026709db18f63bd77b360552b19
       - type: file
         url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-ruledit.png
         sha256: b69f76d8aa6897a47b40da3762161d1f153b04b099c0718be4b75e03177abbfa
