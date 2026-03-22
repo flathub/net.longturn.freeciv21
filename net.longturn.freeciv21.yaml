@@ -20,7 +20,7 @@
 app-id: net.longturn.freeciv21
 # See https://invent.kde.org/packaging/flatpak-kde-runtime for versions of the runtime
 runtime: org.kde.Platform
-runtime-version: '5.15-24.08'
+runtime-version: '5.15-25.08'
 sdk: org.kde.Sdk
 finish-args:
   - --socket=wayland
@@ -72,7 +72,7 @@ modules:
       - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.ruledit.desktop
     sources:
       - type: git
-        commit: 6ee5cf214c961a8e41313027292f5e41bffd790d
+        commit: 59a202f79c988229e74f9411b748e0063cefca49
         url: https://github.com/longturn/freeciv21
       - type: file
         url:  https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-client.png
