@@ -28,7 +28,8 @@ finish-args:
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
-  - --filesystem=home
+  # Needs to save files locally
+  - --filesystem=xdg-documents
   - --persist=.local/share/freeciv21
   - --persist=.config/freeciv21
 
