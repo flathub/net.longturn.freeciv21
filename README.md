@@ -1,27 +1,66 @@
-# Flathub
+# Flathub Flatpak for Freeciv21
 
-Flathub is the central place for building and hosting Flatpak builds.
+Flathub is the central place for building and hosting Flatpak builds. This is the Freeciv21 Flatpak repository.
+Refer to https://github.com/longturn/freeciv21 for more information.
 
-Using the Flathub repository
-----------------------------
+Installing Freeciv21 from Flathub
+---------------------------------
 
-To install applications that are hosted on Flathub, use the following:
+To install the `stable` version of Freeciv21 from Flathub, use the following:
 ```
 flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.gnome.Recipes
+flatpak install flathub net.longturn.freeciv21
 ```
 
-To install applications from the beta branch, use the following:
+To install the `non-stable` or `development` version of Freeciv21 from Flathub, use the following:
 ```
 flatpak remote-add flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak install flathub-beta org.godotengine.Godot
+flatpak install flathub-beta net.longturn.freeciv21
 ```
 
-For more information and more applications see https://flathub.org
+Freeciv21 Packaging Notes for Flathub
+-------------------------------------
 
-Contributing to Flathub
------------------------
+Start by setting up GitHub repositories on your local:
 
-For information on creating packages or reporting issues please see the [contributing page](/CONTRIBUTING.md).
+```
+git clone git@github.com:longturn/net.longturn.freeciv21.git freeciv21-flatpak
+cd freeciv21-flatpak
+git remote add upstream https://github.com/flathub/net.longturn.freeciv21.git
+git fetch upstream
+git pull upstream master
+git submodule init
+git pull --recurse-submodules
+```
 
-***Note:*** *this repository is not for reporting issues related to the flathub.org website itself or contributing to its development. For that, go to https://github.com/flathub/website*
+The flathub repository has two main branches: `master` and `beta`. The `master` branch follows the `stable` 
+branch in the main Freeciv21 code repository. Conversely, the `beta` branch follows the `master` branch in the 
+main Freeciv21 code repository.
+
+Install some software to build locally:
+
+```
+sudo apt install flatpak-builder
+flatpak install flathub -y org.flatpak.Builder
+```
+
+Make needed updates to the manifest file: `net.longturn.freeciv21.yaml`.
+
+Build locally:
+
+```
+# Run a linter on the manifest
+flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest net.longturn.freeciv21.yaml
+
+# Build the package
+flatpak-builder --install-deps-from=flathub --force-clean build net.longturn.freeciv21.yaml
+
+# Install to test
+flatpak-builder --user --install --force-clean build net.longturn.freeciv21.yaml
+
+# Run a test
+flatpak run net.longturn.freeciv21
+
+# Remove the local test
+flatpak remove -y net.longturn.freeciv21
+```
