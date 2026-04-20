@@ -3,18 +3,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: James Robertson <jwrober@gmail.com>
-#
-# Build Steps:
-#   - (once) sudo apt install flatpak-builder
-#   - (once) flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-#   - (once) git submodule init
-#   - (once) git pull --recurse-submodules
-#   - git submodule update --recursive --remote
-#   - flatpak-builder --install-deps-from=flathub --force-clean build net.longturn.freeciv21.yaml
-#   - flatpak-builder --user --install --force-clean build net.longturn.freeciv21.yaml
-#   - flatpak run net.longturn.freeciv21
-#   - flatpak remove net.longturn.freeciv21
-#
 ##########
 
 app-id: net.longturn.freeciv21
@@ -28,7 +16,6 @@ finish-args:
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
-  # Needs to save files locally
   - --filesystem=xdg-documents
   - --persist=.local/share/freeciv21
   - --persist=.config/freeciv21
