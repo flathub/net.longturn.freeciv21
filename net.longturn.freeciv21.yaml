@@ -1,20 +1,8 @@
 ##########
-# Freeciv21 - net.longturn.freeciv21.yaml
+# Freeciv21 - net.longturn.freeciv21.yaml - master branch
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: James Robertson <jwrober@gmail.com>
-#
-# Build Steps:
-#   - (once) sudo apt install flatpak-builder
-#   - (once) sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-#   - (once) git submodule init
-#   - (once) git pull --recurse-submodules
-#   - git submodule update --recursive --remote
-#   - flatpak-builder --install-deps-from=flathub --force-clean build net.longturn.freeciv21.yaml
-#   - flatpak-builder --user --install --force-clean build net.longturn.freeciv21.yaml
-#   - flatpak run net.longturn.freeciv21
-#   - flatpak remove net.longturn.freeciv21
-#
 ##########
 
 app-id: net.longturn.freeciv21
@@ -28,7 +16,7 @@ finish-args:
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
-  - --filesystem=home
+  - --filesystem=xdg-documents
   - --persist=.local/share/freeciv21
   - --persist=.config/freeciv21
 
@@ -72,19 +60,20 @@ modules:
       - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.ruledit.desktop
     sources:
       - type: git
+        # git commit hash of the AutoRevision.txt update after a release (typically one commit post release)
         commit: 59a202f79c988229e74f9411b748e0063cefca49
         url: https://github.com/longturn/freeciv21
       - type: file
-        url:  https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-client.png
+        url:  https://raw.githubusercontent.com/longturn/freeciv21/v3.1.1/data/icons/128x128/freeciv21-client.png
         sha256: 33afb053fbbf78697519a9228da4230562394286c9dc29d335d4d6372276b400
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-server.png
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.1/data/icons/128x128/freeciv21-server.png
         sha256: 05352cc0c00746ba79542103f0d71dc17368da24f2ebed3979ddadc199b930ba
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-modpack.png
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.1/data/icons/128x128/freeciv21-modpack.png
         sha256: 82c32292738cb63a6e55bf880758ff5f9987e026709db18f63bd77b360552b19
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.0/data/icons/128x128/freeciv21-ruledit.png
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.1/data/icons/128x128/freeciv21-ruledit.png
         sha256: b69f76d8aa6897a47b40da3762161d1f153b04b099c0718be4b75e03177abbfa
 
 ##########
