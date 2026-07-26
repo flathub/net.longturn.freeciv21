@@ -24,7 +24,7 @@ command: freeciv21-client
 
 modules:
   # Use Lua 5.3 shared-module as a dependency not included in the runtime.
-  - shared-modules/lua5.3/lua-5.3.5.json
+  - shared-modules/lua5.4/lua-5.4.json
 
   # Get Libertunus font as a dependency.
   - name: Libertinus
@@ -61,19 +61,19 @@ modules:
     sources:
       - type: git
         # git commit hash of the AutoRevision.txt update after a release (typically one commit post release)
-        commit: 59a202f79c988229e74f9411b748e0063cefca49
+        commit: f0acdc4a5fc63502b8b8c51eb71df49b09eaa763
         url: https://github.com/longturn/freeciv21
       - type: file
-        url:  https://raw.githubusercontent.com/longturn/freeciv21/v3.1.1/data/icons/128x128/freeciv21-client.png
+        url:  https://raw.githubusercontent.com/longturn/freeciv21/v3.1.2/data/icons/128x128/freeciv21-client.png
         sha256: 33afb053fbbf78697519a9228da4230562394286c9dc29d335d4d6372276b400
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.1/data/icons/128x128/freeciv21-server.png
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.2/data/icons/128x128/freeciv21-server.png
         sha256: 05352cc0c00746ba79542103f0d71dc17368da24f2ebed3979ddadc199b930ba
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.1/data/icons/128x128/freeciv21-modpack.png
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.2/data/icons/128x128/freeciv21-modpack.png
         sha256: 82c32292738cb63a6e55bf880758ff5f9987e026709db18f63bd77b360552b19
       - type: file
-        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.1/data/icons/128x128/freeciv21-ruledit.png
+        url: https://raw.githubusercontent.com/longturn/freeciv21/v3.1.2/data/icons/128x128/freeciv21-ruledit.png
         sha256: b69f76d8aa6897a47b40da3762161d1f153b04b099c0718be4b75e03177abbfa
 
 ##########
