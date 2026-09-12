@@ -61,7 +61,7 @@ modules:
     sources:
       - type: git
         # git commit hash of the AutoRevision.txt update after a release (typically one commit post release)
-        commit: f0acdc4a5fc63502b8b8c51eb71df49b09eaa763
+        commit: 767e69f9aa9fc023dd357337e610bf440f874d2e
         url: https://github.com/longturn/freeciv21
       - type: file
         url:  https://raw.githubusercontent.com/longturn/freeciv21/v3.1.2/data/icons/128x128/freeciv21-client.png
